@@ -185,6 +185,10 @@ public virtual class Action extends Func {
                 }
             }
 
+            // If integrated with Log.apex, call Log.flush at the end of each action
+            Func flush = Func.require('Log.flush', R.noop);
+            flush.run();
+
             if(this.returnRaw) {
                 String jsonStr = JSON.serialize(result);
                 return JSON.deserializeUntyped(jsonStr);
