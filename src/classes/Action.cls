@@ -209,7 +209,7 @@ public virtual class Action extends Func {
      * @return Object
      * */
     public virtual Object execActionN(List<Object> args) {
-        throw new ActionException('Action is not implemented');
+        throw new AuraHandledException('Action is not implemented');
 
         return null;
     }
@@ -220,7 +220,7 @@ public virtual class Action extends Func {
      * @return Object
      * */
     public virtual Object execAction() {
-        throw new ActionException('Action is not implemented');
+        throw new AuraHandledException('Action is not implemented');
 
         return null;
     }
@@ -232,7 +232,7 @@ public virtual class Action extends Func {
      * @return Object
      * */
     public virtual Object execAction(Object arg) {
-        throw new ActionException('Action is not implemented');
+        throw new AuraHandledException('Action is not implemented');
 
         return null;
     }
@@ -245,7 +245,7 @@ public virtual class Action extends Func {
      * @return Object
      * */
     public virtual Object execAction(Object arg1, Object arg2) {
-        throw new ActionException('Action is not implemented');
+        throw new AuraHandledException('Action is not implemented');
 
         return null;
     }
@@ -259,7 +259,7 @@ public virtual class Action extends Func {
      * @return Object
      * */
     public virtual Object execAction(Object arg1, Object arg2, Object arg3) {
-        throw new ActionException('Action is not implemented');
+        throw new AuraHandledException('Action is not implemented');
 
         return null;
     }
@@ -490,7 +490,7 @@ public virtual class Action extends Func {
         public Object invoke(String name, List<Object> args) {
             Action instance = this.actions.get(name);
             if(instance == null) {
-                throw new ActionException('Action not found for [' + name + ']');
+                throw new AuraHandledException('Action not found for [' + name + ']');
             }
 
             return instance.runN(args);
@@ -509,7 +509,7 @@ public virtual class Action extends Func {
         public Object invoke(String name, Map<String, Object> args) {
             Action instance = this.actions.get(name);
             if(instance == null) {
-                throw new ActionException('Action not found for [' + name + ']');
+                throw new AuraHandledException('Action not found for [' + name + ']');
             }
 
             List<Object> argList = new List<Object>();
@@ -546,8 +546,5 @@ public virtual class Action extends Func {
             this.paramType = String.valueOf(typeClass);
             this.paramDescription = description;
         }
-    }
-
-    public class ActionException extends Exception {
     }
 }
