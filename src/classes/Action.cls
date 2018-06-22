@@ -198,6 +198,7 @@ public virtual class Action extends Func {
             }
         }
         catch(Exception e) {
+            System.debug(e.getStackTraceString());
             throw new AuraHandledException(e.getMessage());
         }
     }
