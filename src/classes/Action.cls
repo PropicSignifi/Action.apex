@@ -322,7 +322,7 @@ public virtual class Action extends Func {
                 return R.toDecimal.run(arg);
             }
         }
-        else if(argType == String.class) {
+        else if(argType == String.class || argType == Id.class) {
             if(arg instanceof String) {
                 return arg;
             }
